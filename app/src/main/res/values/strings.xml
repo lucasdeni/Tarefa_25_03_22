@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Ohata_25_03_22</string>
+    <string name="none">None</string>
+    <string name="altura_1_80">Altura (1,80)</string>
+    <string name="nascimento_dd_mm_aaaa">Nascimento (DD/MM/AAAA)</string>
+    <string name="todo">TODO</string>
 </resources>

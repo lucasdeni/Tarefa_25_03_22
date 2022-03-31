@@ -14,7 +14,8 @@
         android:layout_marginBottom="30dp"
         android:clickable="true"
         android:focusable="true"
-        app:srcCompact="@android:drawable/ic_input_add" />
+        app:srcCompact="@android:drawable/ic_input_add"
+        android:contentDescription="@string/todo" />
 
     <ListView
         android:id="@+id/activity_main_lista_personagem"
