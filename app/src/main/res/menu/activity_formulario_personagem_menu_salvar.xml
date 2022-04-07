@@ -4,7 +4,8 @@
 
     <item
         android:id="@+id/activity_main_lista_personagem_menu_remover"
-        android:title="Salvar o personagem"
-        android:icon="@drawable/ic_add_personagem"
-        app:showAsAction="always"></item>
+        android:icon="@mipmap/ic_skeleton"
+        android:title="@string/salvar_o_personagem"
+        app:showAsAction="always" />
+
 </menu>

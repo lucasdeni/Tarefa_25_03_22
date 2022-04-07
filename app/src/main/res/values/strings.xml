@@ -4,4 +4,7 @@
     <string name="altura_1_80">Altura (1,80)</string>
     <string name="nascimento_dd_mm_aaaa">Nascimento (DD/MM/AAAA)</string>
     <string name="todo">TODO</string>
+    <string name="salvar_o_personagem">Salvar o personagem</string>
+    <string name="remover">Remover</string>
+    <string name="teste">Teste</string>
 </resources>
