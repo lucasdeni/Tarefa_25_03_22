@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="activity_formulario_personagem_menu_salvar" type="id" />
+    <item name="editText_nome" type="id" />
+</resources>
