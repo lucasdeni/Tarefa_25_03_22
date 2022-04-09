@@ -18,11 +18,14 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.view.menu.ActionMenuItem;
 
 import com.example.ohata_25_03_22.R;
 import com.example.ohata_25_03_22.dao.PersonagemDAO;
 import com.example.ohata_25_03_22.model.Personagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.List;
 
 public class ListaPersonagemActivity extends AppCompatActivity{
     public static final String TITULO_APPBAR = "Lista de Personagem";
@@ -73,10 +76,51 @@ public class ListaPersonagemActivity extends AppCompatActivity{
     }
 
     @Override
-    public boolean onContextItemSelected(NonNull MenuItem item){
+    public boolean onContextItemSelected(@NonNull MenuItem item)    {
         int itemId = item.getItemId();
         if(itemId == R.id.activity_main_lista_personagem_menu_remover){
-
+            new AlertDialog.Builder(this)
+                    .setTitle("Removendo Personagem")
+                    .setMessage("Tem certeza que quer remover")
+                    .setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            AdapterView.AdapterContextMenuInfo menuInfo = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+                            Personagem personagemEscolhido = adapter.getItem(menuInfo.position);
+                            remove(personagemEscolhido);
+                        }
+                    })
+                    .setNegativeButton("Não", null)
+                    .show();
         }
+        return super.onContextItemSelected(item);
+    }
+
+    private void configuraLista(){
+        ListView listaDePersonagens = findViewById(R.id.activity_main_lista_personagem);
+        configuraAdapter(listaDePersonagens);
+        configuraItemPorClique(listaDePersonagens);
+        registerForContextMenu(listaDePersonagens);
+    }
+
+    private void configuraItemPorClique(ListView listaDePersonagens){
+        listaDePersonagens.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int posicao, long id) {
+                Personagem personagemEscolhido = (Personagem) adapterView.getItemAtPosition(posicao);
+                abreFormularioEditar(personagemEscolhido);
+            }
+        });
+    }
+
+    private void abreFormularioEditar(Personagem personagemEscolhido) {
+        Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersoagemActivity.class);
+        vaiParaFormulario.putExtra(CHAVE_PERSONAGEM, personagemEscolhido);
+        startActivity(vaiParaFormulario);
+    }
+
+    private void configuraAdapter(ListView listaDePersonagens) {
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+        listaDePersonagens.setAdapter(adapter);
     }
 }
