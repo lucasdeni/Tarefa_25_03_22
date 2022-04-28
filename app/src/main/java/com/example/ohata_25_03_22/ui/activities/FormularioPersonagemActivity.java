@@ -28,12 +28,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
 
+    // Cria o menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
+    // Seleciona um item para finalizar o formulario
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int itemId = item.getItemId();
@@ -43,6 +45,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    // Cria uma UI pro usuário
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -55,6 +58,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private void checaPermissao() {
     }
 
+    // Em caso de edicao ou criacao de um personagem
     private void carregaPersonagem(){
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_PERSONAGEM)){
@@ -67,12 +71,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         }
     }
 
+    // Vai preencher os valores do personagem
     private void preencherCampos(){
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNasmimento.setText(personagem.getNascimento());
     }
 
+    // Atribui as variaveis do usuario
     private void preencherPersonagem(){
         String nome = campoNome.getText().toString();
         BreakIterator campoNascimento = null;
@@ -84,6 +90,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         personagem.setNascimento(nascimento);
     }
 
+    // se for um id valido ele pode editar ou salvar o personagem
     private void finalizarFormulario(){
         preencherPersonagem();
         if(personagem.IdValido()){
@@ -94,6 +101,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         }
     }
 
+    // ???
     private void inicializacaoCampos() {
         campoNome = findViewById(R.id.editText_nome);
         campoNasmimento = findViewById(R.id.editText_nascimento);

@@ -5,6 +5,7 @@ import androidx.annotation.NonNull;
 import java.io.Serializable;
 
 public class Personagem implements Serializable {
+    // Nessa classe tem variaveis e constructos para alterar os dados do personagem
     private String nome;
     private String nascimento;
     private String altura;
