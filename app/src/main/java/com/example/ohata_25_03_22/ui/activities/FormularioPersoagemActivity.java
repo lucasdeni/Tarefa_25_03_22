@@ -108,6 +108,4 @@ public class FormularioPersoagemActivity extends AppCompatActivity {
         MaskTextWatcher mtwNascimento = new MaskTextWatcher(campoNascimento, smfNascimento);
         campoAltura.addTextChangedListener((TextWatcher) mtwNascimento);
     }
-
-
 }
