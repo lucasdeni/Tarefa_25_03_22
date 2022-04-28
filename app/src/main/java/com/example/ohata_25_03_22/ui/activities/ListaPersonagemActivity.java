@@ -8,8 +8,6 @@ import android.os.Bundle;
 import android.view.ContextMenu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AbsSpinner;
-import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
@@ -18,14 +16,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.view.menu.ActionMenuItem;
 
 import com.example.ohata_25_03_22.R;
 import com.example.ohata_25_03_22.dao.PersonagemDAO;
 import com.example.ohata_25_03_22.model.Personagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.List;
 
 public class ListaPersonagemActivity extends AppCompatActivity{
     public static final String TITULO_APPBAR = "Lista de Personagem";
@@ -50,7 +45,7 @@ public class ListaPersonagemActivity extends AppCompatActivity{
    }
 
     private void abreFormulario() {
-        startActivity(new Intent(this, FormularioPersoagemActivity.class));
+        startActivity(new Intent(this, FormularioPersonagemActivity.class));
     }
 
     @Override
@@ -114,7 +109,7 @@ public class ListaPersonagemActivity extends AppCompatActivity{
     }
 
     private void abreFormularioEditar(Personagem personagemEscolhido) {
-        Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersoagemActivity.class);
+        Intent vaiParaFormulario = new Intent(ListaPersonagemActivity.this, FormularioPersonagemActivity.class);
         vaiParaFormulario.putExtra(CHAVE_PERSONAGEM, personagemEscolhido);
         startActivity(vaiParaFormulario);
     }

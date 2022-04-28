@@ -9,7 +9,7 @@
         android:roundIcon="@mipmap/ic_skeleton_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Ohata_25_03_22">
-        <activity android:name=".ui.activities.FormularioPersoagemActivity"/>
+        <activity android:name=".ui.activities.FormularioPersonagemActivity"/>
         <activity android:name=".ui.activities.ListaPersonagemActivity"
             android:exported="true">
             <intent-filter>
