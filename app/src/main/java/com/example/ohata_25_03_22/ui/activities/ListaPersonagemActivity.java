@@ -23,11 +23,11 @@ import com.example.ohata_25_03_22.model.Personagem;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class ListaPersonagemActivity extends AppCompatActivity{
-    public static final String TITULO_APPBAR = "Lista de Personagem";
-    private final PersonagemDAO dao = new PersonagemDAO();
-    private ArrayAdapter<Personagem> adapter;
+    public static final String TITULO_APPBAR = "Lista de Personagem"; // Titulo do cabecario
+    private final PersonagemDAO dao = new PersonagemDAO(); // Cria objeto personagem DAO
+    private ArrayAdapter<Personagem> adapter; // Usa o adapter pra criar a lista
 
-    // Cria a activity
+    // Cria uma view da lista dos personagens que chama os metodos para gerar um novo personagem
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);

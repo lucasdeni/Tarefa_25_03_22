@@ -18,7 +18,7 @@ import com.example.ohata_25_03_22.model.Personagem;
 import java.text.BreakIterator;
 
 public class FormularioPersonagemActivity extends AppCompatActivity {
-
+    // Declaracao de variaveis
     private static final String TITULO_APPBAR_EDITA_PERSONAGEM = "Editar o Personagem";
     private static final String TITULO_APPBAR_NOVO_PERSONAGEM = "Novo Personagem";
     private static final String CHAVE_PERSONAGEM = "Chave Personagem";
@@ -28,14 +28,14 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private final PersonagemDAO dao = new PersonagemDAO();
     private Personagem personagem;
 
-    // Cria o menu
+    // Cria o menu com as referencias do xml
     @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.activity_formulario_personagem_menu_salvar, menu);
         return super.onCreateOptionsMenu(menu);
     }
 
-    // Seleciona um item para finalizar o formulario
+    // Cria um metodo que seleciona um item para finalizar o formulario
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item){
         int itemId = item.getItemId();
@@ -45,7 +45,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Cria uma UI pro usuário
+    // Cria uma view do formulário
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -58,27 +58,28 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
     private void checaPermissao() {
     }
 
-    // Em caso de edicao ou criacao de um personagem
+    // Em caso de edicao ele carrega os dados de um personagem
+    // Em caso de criacao de um personagem ele cria um novo
     private void carregaPersonagem(){
         Intent dados = getIntent();
         if(dados.hasExtra(CHAVE_PERSONAGEM)){
             setTitle(TITULO_APPBAR_EDITA_PERSONAGEM);
             personagem = (Personagem) ((Intent) dados).getSerializableExtra(CHAVE_PERSONAGEM);
-            preencherCampos();
+            preencheCampos();
         } else {
             setTitle(TITULO_APPBAR_NOVO_PERSONAGEM);
             personagem = new Personagem();
         }
     }
 
-    // Vai preencher os valores do personagem
-    private void preencherCampos(){
+    // Vai abrir para que o usuario preencha os valores do personagem
+    private void preencheCampos(){
         campoNome.setText(personagem.getNome());
         campoAltura.setText(personagem.getAltura());
         campoNasmimento.setText(personagem.getNascimento());
     }
 
-    // Atribui as variaveis do usuario
+    // Atribui as variaveis definidas pelo usuario
     private void preencherPersonagem(){
         String nome = campoNome.getText().toString();
         BreakIterator campoNascimento = null;
@@ -101,7 +102,7 @@ public class FormularioPersonagemActivity extends AppCompatActivity {
         }
     }
 
-    // ???
+    // Pega os campos de texto e armazena seus dados dentro da variavel
     private void inicializacaoCampos() {
         campoNome = findViewById(R.id.editText_nome);
         campoNasmimento = findViewById(R.id.editText_nascimento);
