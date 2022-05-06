@@ -12,34 +12,38 @@
         android:orientation="vertical">
 
         <EditText
-            android:id="@+id/editText_none"
+            android:id="@+id/editText_nome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/none"
             android:inputType="textPersonName"
-            android:autofillHints="" />
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editText_altura"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/altura_1_80"
             android:inputType="numberDecimal"
-            android:autofillHints="" />
+            android:minHeight="48dp" />
 
         <EditText
             android:id="@+id/editText_nascimento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
+            android:autofillHints=""
             android:ems="10"
             android:hint="@string/nascimento_dd_mm_aaaa"
             android:inputType="date"
-            android:autofillHints="" />
+            android:minHeight="48dp"
+            android:textColorHint="#757575" />
 
     </LinearLayout>
 

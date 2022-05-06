@@ -19,9 +19,9 @@ public class Personagem implements Serializable {
 
     public Personagem(){ }
 
-    public void SetNome(String nome) {this.nome = nome;}
-    public void SetNascimento(String nascimento) {this.nascimento = nascimento;}
-    public void SetAltura(String altura) {this.altura = altura;}
+    public void setNome(String nome) {this.nome = nome;}
+    public void setNascimento(String nascimento) {this.nascimento = nascimento;}
+    public void setAltura(String altura) {this.altura = altura;}
 
     public String getNome() {return nome;}
     public String getNascimento() {return nascimento;}
@@ -37,20 +37,4 @@ public class Personagem implements Serializable {
     public int getId() {return id;}
 
     public boolean IdValido() {return id > 0;}
-
-    public int indexOf(Personagem personagemEncontrado) {
-        return 0;
-    }
-
-    public void set(int posicaoDoPersonagem, Personagem personagem) {
-    }
-
-    public void setNome(String nome) {
-    }
-
-    public void setAltura(String altura) {
-    }
-
-    public void setNascimento(String nascimento) {
-    }
 }

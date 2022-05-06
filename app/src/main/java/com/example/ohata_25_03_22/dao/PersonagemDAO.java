@@ -23,8 +23,8 @@ public class PersonagemDAO {
     public void edita(Personagem personagem){
         Personagem personagemEncontrado = buscaPersonagemId(personagem);
         if(personagemEncontrado != null){
-            int posicaoDoPersonagem = personagem.indexOf(personagemEncontrado);
-            personagem.set(posicaoDoPersonagem, personagem);
+            int posicaoDoPersonagem = personagens.indexOf(personagemEncontrado);
+            personagens.set(posicaoDoPersonagem, personagem);
         }
     }
 
